@@ -257,6 +257,17 @@
       background: #3B82F6;
     }
 
+    /* Success message style */
+    .success-message {
+      text-align: center;
+      padding: 15px;
+      background: #10B981;
+      color: white;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: none;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       text-align: center;
@@ -395,20 +406,27 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION (Form opens email) -->
+<!-- CONTACT SECTION - WORKING FIXED VERSION -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact-form">
-    <form id="contactForm">
-      <input type="text" id="userName" placeholder="Your Name" required />
+    <form action="https://formsubmit.co/umar.webdevofficial@gmail.com" method="POST">
+      <!-- Anti-spam fields -->
+      <input type="text" name="_honey" style="display: none;">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://project-9se0t.vercel.app/#contact">
+      
+      <input type="text" name="name" placeholder="Your Name" required />
       <br><br>
-      <input type="email" id="userEmail" placeholder="Your Email" required />
+      <input type="email" name="email" placeholder="Your Email" required />
       <br><br>
-      <textarea id="userMsg" placeholder="Your Message" required></textarea>
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <br><br>
       <button class="btn btn-submit" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
     </form>
-    <p style="font-size: 13px; text-align: center; margin-top: 20px; color: #64748B;">📩 Your email client will open — just click Send.</p>
+    <p style="font-size: 13px; text-align: center; margin-top: 20px; color: #64748B;">
+      ✅ Your message will be sent directly to <strong>umar.webdevofficial@gmail.com</strong>
+    </p>
   </div>
 </section>
 
@@ -447,31 +465,6 @@
       }
     });
   });
-
-  // Email form handler (opens mail client)
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('userName').value.trim();
-      const email = document.getElementById('userEmail').value.trim();
-      const msg = document.getElementById('userMsg').value.trim();
-
-      if (!name || !email || !msg) {
-        alert('⚠️ Please fill all fields.');
-        return;
-      }
-
-      const subject = `Portfolio message from ${name}`;
-      const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${msg}`;
-      const mailtoLink = `mailto:umar.webdevofficial@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-      window.location.href = mailtoLink;
-      alert(`✅ Opening email client... Just click Send to reach me.`);
-      form.reset();
-    });
-  }
 </script>
 </body>
 </html>

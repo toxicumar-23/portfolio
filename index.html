@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <title>Umar.dev | Front-End Developer</title>
+
+  <meta name="description" content="Umar - Front-End Developer specializing in responsive, modern and high-performance websites." />
+  <meta name="keywords" content="frontend developer, web developer, HTML CSS JS, Fiverr developer, responsive websites" />
+  <meta name="author" content="Umar" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* ===== NAVBAR STICKY & MODERN ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 700;
+      font-size: 22px;
+      background: linear-gradient(135deg, #0F172A, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #3B82F6;
+    }
+
+    /* Mobile Menu Button */
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(145deg, #F8FAFC 0%, #FFFFFF 100%);
+    }
+
+    .hero-content {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(125deg, #0F172A, #1E293B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #475569;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #0F172A;
+      color: #fff;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #3B82F6;
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      padding: 70px 24px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #0F172A;
+      text-align: center;
+      position: relative;
+    }
+
+    h2:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #3B82F6;
+      margin: 12px auto 0;
+      border-radius: 3px;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-text {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 17px;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* ===== SERVICES GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 28px 20px;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #CBD5E1;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card i {
+      font-size: 38px;
+      color: #3B82F6;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748B;
+      font-size: 14px;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form {
+      max-width: 600px;
+      margin: 30px auto 0;
+      background: #fff;
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #F0F2F5;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      justify-content: center;
+      background: #0F172A;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: #3B82F6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #F1F5F9;
+      margin-top: 30px;
+      color: #475569;
+    }
+
+    .socials {
+      margin-bottom: 15px;
+    }
+
+    .socials a {
+      color: #475569;
+      font-size: 20px;
+      margin: 0 10px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .socials a:hover {
+      color: #0F172A;
+      transform: translateY(-3px);
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 14px 20px;
+      }
+      
+      .menu-icon {
+        display: block;
+      }
+      
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0 10px;
+        text-align: center;
+      }
+      
+      .nav-links.show {
+        display: flex;
+      }
+      
+      .hero h1 {
+        font-size: 34px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      section {
+        padding: 50px 20px;
+      }
+      
+      .contact-form {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+      
+      .btn {
+        padding: 10px 22px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR (Sticky + Mobile Toggle) -->
+<nav class="navbar">
+  <div class="logo">umar.dev</div>
+  <button class="menu-icon" id="menuToggle" aria-label="Menu">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Front-End Developer</h1>
+    <p>I build clean, fast and responsive websites with modern UI.</p>
+    <a class="btn" href="#contact">Hire Me <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-text">
+    <p>I am a front-end developer focused on modern UI and high-performance websites. I specialize in responsive design, semantic HTML, CSS, and interactive JavaScript. Every project I build is optimized for speed, accessibility, and user experience.</p>
+  </div>
+</section>
+
+<!-- SERVICES SECTION (Enhanced with icons + details) -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Responsive Design</h3>
+      <p>Perfect experience on all devices — mobile, tablet, and desktop.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-code"></i>
+      <h3>Frontend Development</h3>
+      <p>Clean, semantic HTML/CSS and interactive JavaScript solutions.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-rocket"></i>
+      <h3>UI Optimization</h3>
+      <p>Fast loading, SEO-friendly and modern visual interfaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION (Form opens email) -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-form">
+    <form id="contactForm">
+      <input type="text" id="userName" placeholder="Your Name" required />
+      <br><br>
+      <input type="email" id="userEmail" placeholder="Your Email" required />
+      <br><br>
+      <textarea id="userMsg" placeholder="Your Message" required></textarea>
+      <br><br>
+      <button class="btn btn-submit" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+    </form>
+    <p style="font-size: 13px; text-align: center; margin-top: 20px; color: #64748B;">📩 Your email client will open — just click Send.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="socials">
+    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>© 2026 Umar.dev | Front-End Developer</p>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuToggle');
+  const navList = document.getElementById('navLinks');
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
+  }
+
+  // Smooth scroll + close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (navList.classList.contains('show')) {
+          navList.classList.remove('show');
+        }
+      }
+    });
+  });
+
+  // Email form handler (opens mail client)
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const msg = document.getElementById('userMsg').value.trim();
+
+      if (!name || !email || !msg) {
+        alert('⚠️ Please fill all fields.');
+        return;
+      }
+
+      const subject = `Portfolio message from ${name}`;
+      const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${msg}`;
+      const mailtoLink = `mailto:umar.webdevofficial@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      window.location.href = mailtoLink;
+      alert(`✅ Opening email client... Just click Send to reach me.`);
+      form.reset();
+    });
+  }
+</script>
+</body>
+</html>

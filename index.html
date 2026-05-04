@@ -257,17 +257,6 @@
       background: #3B82F6;
     }
 
-    /* Success message style */
-    .success-message {
-      text-align: center;
-      padding: 15px;
-      background: #10B981;
-      color: white;
-      border-radius: 12px;
-      margin-top: 15px;
-      display: none;
-    }
-
     /* ===== FOOTER ===== */
     footer {
       text-align: center;
@@ -384,7 +373,7 @@
   </div>
 </section>
 
-<!-- SERVICES SECTION (Enhanced with icons + details) -->
+<!-- SERVICES SECTION -->
 <section id="services">
   <h2>Services</h2>
   <div class="grid">
@@ -406,26 +395,21 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION - WORKING FIXED VERSION -->
+<!-- CONTACT SECTION - DIRECT GMAIL WORKING -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact-form">
-    <form action="https://formsubmit.co/umar.webdevofficial@gmail.com" method="POST">
-      <!-- Anti-spam fields -->
-      <input type="text" name="_honey" style="display: none;">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://project-9se0t.vercel.app/#contact">
-      
-      <input type="text" name="name" placeholder="Your Name" required />
+    <form id="contactForm">
+      <input type="text" id="userName" placeholder="Your Name" required />
       <br><br>
-      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="email" id="userEmail" placeholder="Your Email" required />
       <br><br>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <textarea id="userMsg" placeholder="Your Message" required></textarea>
       <br><br>
       <button class="btn btn-submit" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
     </form>
     <p style="font-size: 13px; text-align: center; margin-top: 20px; color: #64748B;">
-      ✅ Your message will be sent directly to <strong>umar.webdevofficial@gmail.com</strong>
+      📩 Click Send → Gmail/Email app will open → Just click Send again
     </p>
   </div>
 </section>
@@ -465,6 +449,33 @@
       }
     });
   });
+
+  // Contact Form - Direct Gmail (FULLY WORKING)
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const message = document.getElementById('userMsg').value.trim();
+
+      if (!name || !email || !message) {
+        alert('⚠️ Please fill all fields.');
+        return;
+      }
+
+      const subject = `Portfolio Message from ${name}`;
+      const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}%0A%0A---%0ASent from Umar.dev Portfolio`;
+      const mailtoLink = `mailto:umar.webdevofficial@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      window.location.href = mailtoLink;
+      
+      setTimeout(() => {
+        form.reset();
+      }, 1000);
+    });
+  }
 </script>
 </body>
 </html>
